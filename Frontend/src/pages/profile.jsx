@@ -5,10 +5,16 @@ import MainNav from '../Components/Nav';
 import EditUserInfo from '../Components/EditUserInfo';
 import Account from '../Components/account';
 import accountsData from '../Data/accountData';
+import { Navigate } from 'react-router-dom'; 
 
 export default function Client() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated); 
   const user = useSelector((state) => state.auth.user);
   const [isEditing, setIsEditing] = useState(false);
+
+  if (!isAuthenticated) {
+    return <Navigate to="/sign-in" />;
+  }
 
   return (
     <>
