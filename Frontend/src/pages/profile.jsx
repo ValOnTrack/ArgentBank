@@ -13,6 +13,7 @@ export default function Client() {
   const [isEditing, setIsEditing] = useState(false);
 
   if (!isAuthenticated) {
+    alert("Vous devez être connecté pour accéder à cette page.");
     return <Navigate to="/sign-in" />;
   }
 
